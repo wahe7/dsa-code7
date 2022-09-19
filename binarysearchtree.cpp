@@ -130,18 +130,71 @@ node* max(node* &root)
     }
     return temp;
 }
+
+// deletion
+node* deletion(node* root,int val)
+{
+    if(root==NULL)
+     return NULL;
+    if(root->data==val)
+    {
+        //0 child
+        if(root->left==NULL && root->right==NULL)
+        {
+            delete root;
+            return NULL;
+        }
+
+        //1child
+    if(root->left!=NULL && root->right==NULL)
+    {
+        node* temp=root->left;
+        delete root;
+        return temp;
+    }
+       if(root->left==NULL && root->right!=NULL)
+    {
+        node* temp=root->right;
+        delete root;
+        return temp;
+    }
+        //2child
+         if(root->left!=NULL && root->right!=NULL)   
+         {
+            int mini=min(root->right)->data;
+            root->data=mini;
+            root->right=deletion(root->right,mini);
+            return root;
+         }
+    }
+
+    else if(root->data>val)
+    {
+        root->left=deletion(root->left,val);
+        return root;
+    }
+    else
+       {
+        root->right=deletion(root->right,val);
+        return root;
+    }
+}
+
+
 int main()
 {
     node* root=NULL;
     cout<<"taking input"<<endl;
     takeinput(root);
-    cout<<"printing"<<endl;
+   
     // levelordertraversal(root);
     // inorder(root);
     // int x;
     // cin>>x;
     // cout<<search(root,x);
-    cout<<min(root)->data<<endl;
-    cout<<max(root)->data;
-
+    // cout<<min(root)->data<<endl;
+    // cout<<max(root)->data;
+    deletion(root,3);
+    cout<<"printing"<<endl;
+    inorder(root);
 }
