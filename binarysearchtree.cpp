@@ -132,54 +132,100 @@ node* max(node* &root)
 }
 
 // deletion
-node* deletion(node* root,int val)
+// node* deletion(node* root,int val)
+// {
+//     if(root==NULL)
+//      return NULL;
+//     if(root->data==val)
+//     {
+//         //0 child
+//         if(root->left==NULL && root->right==NULL)
+//         {
+//             delete root;
+//             return NULL;
+//         }
+
+//         //1child
+//     if(root->left!=NULL && root->right==NULL)
+//     {
+//         node* temp=root->left;
+//         delete root;
+//         return temp;
+//     }
+//        if(root->left==NULL && root->right!=NULL)
+//     {
+//         node* temp=root->right;
+//         delete root;
+//         return temp;
+//     }
+//         //2child
+//          if(root->left!=NULL && root->right!=NULL)   
+//          {
+//             int mini=min(root->right)->data;
+//             root->data=mini;
+//             root->right=deletion(root->right,mini);
+//             return root;
+//          }
+//     }
+
+//     else if(root->data>val)
+//     {
+//         root->left=deletion(root->left,val);
+//         return root;
+//     }
+//     else
+//        {
+//         root->right=deletion(root->right,val);
+//         return root;
+//     }
+// }
+
+//isBST valid
+// bool isbst(node* root,int min,int max)
+//     {
+//         if(root==NULL)
+//         {
+//             return true;
+//         }
+//         if(root->data>=min && root->data<=max)
+//         {
+//             bool left=isbst(root->left,min,root->data);
+//             bool right=isbst(root->right,root->data,max);
+//             return left && right;
+//         }
+//         else{
+//             return false;
+//         }
+//     }
+
+// bool isbstvalid(node* root)
+// {
+//     return isbst(root,INT16_MIN,INT16_MAX);
+// }
+
+//find k-th smallest element
+
+int solve(node* root,int i,int k)
 {
     if(root==NULL)
-     return NULL;
-    if(root->data==val)
     {
-        //0 child
-        if(root->left==NULL && root->right==NULL)
-        {
-            delete root;
-            return NULL;
-        }
+        return -1;
 
-        //1child
-    if(root->left!=NULL && root->right==NULL)
+    }
+    int left=solve(root->left,i,k);
+    i++;
+    if(i==k)
     {
-        node* temp=root->left;
-        delete root;
-        return temp;
+        return root->data;
     }
-       if(root->left==NULL && root->right!=NULL)
-    {
-        node* temp=root->right;
-        delete root;
-        return temp;
-    }
-        //2child
-         if(root->left!=NULL && root->right!=NULL)   
-         {
-            int mini=min(root->right)->data;
-            root->data=mini;
-            root->right=deletion(root->right,mini);
-            return root;
-         }
-    }
-
-    else if(root->data>val)
-    {
-        root->left=deletion(root->left,val);
-        return root;
-    }
-    else
-       {
-        root->right=deletion(root->right,val);
-        return root;
-    }
+    return solve(root->right,i,k);
 }
-
+int ksmall(node* root,int k)
+{
+    int i=0;
+    
+    return solve(root,i,k);
+}
 
 int main()
 {
@@ -188,13 +234,17 @@ int main()
     takeinput(root);
    
     // levelordertraversal(root);
-    // inorder(root);
+   
     // int x;
     // cin>>x;
     // cout<<search(root,x);
     // cout<<min(root)->data<<endl;
     // cout<<max(root)->data;
-    deletion(root,3);
+    // deletion(root,3);
     cout<<"printing"<<endl;
-    inorder(root);
+    cout<<ksmall(root,3);
+    cout<<endl;
+     inorder(root);
+    
+//    cout<<isbstvalid(root);
 }
