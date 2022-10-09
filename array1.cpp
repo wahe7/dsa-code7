@@ -1,32 +1,83 @@
-#include<iostream>
+// #include<iostream>
+// using namespace std;
+
+// int max(int num[],int n)
+// {
+//     int max= INT16_MIN;
+//     int i;
+//     for(i=0;i<n;i++)
+//     {
+//         if(max<num[i])
+//         {
+//             max=num[i];
+//         }
+//     }
+//     return max;
+// }
+
+// int main()
+// {
+//     int num[100];
+//     int n,i;
+//     cin>>n;
+//     for(i=0;i<n;i++)
+//     {
+//         cin>>num[i];
+//     }
+
+//     cout<<"Max no. in an array = "<< max(num,n);
+
+// }
+
+#include <iostream>
 using namespace std;
 
-
-
-int max(int num[],int n)
+void freq(int arr[8],int n)
 {
-    int max= INT16_MIN;
-    int i;
-    for(i=0;i<n;i++)
+    int i,j;
+    
+    for(i=0;i<9;i++)
     {
-        if(max<num[i])
+        int count=0;
+        for(j=0;j<n;j++)
         {
-            max=num[i];
+            if(i==arr[j])
+            {
+                count=count+1;
+            }
+            
         }
+    if(count!=0)
+    {
+    cout<<i<<" : " <<count<<" ";
+    cout<<endl;
     }
-    return max;
+
+
+    }
 }
 
 int main()
 {
-    int num[100];
-    int n,i;
+    int n ;
+    cout<<"Enter any no. : ";
     cin>>n;
-    for(i=0;i<n;i++)
+    int x = 0, i, j;
+    int y = 0;
+    int arr[8];
+    while (n > 0)
     {
-        cin>>num[i];
+        y = n % 10;
+        arr[x] = y;
+        n = n / 10;
+        x++;
     }
-
-    cout<<"Max no. in an array = "<< max(num,n);
+    int size=sizeof(arr)/sizeof(arr[0]);
+    for(i=0;i<size;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
  
+    freq(arr,size);
 }
