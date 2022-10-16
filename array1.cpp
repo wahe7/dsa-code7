@@ -29,39 +29,39 @@
 
 // }
 
+
+//frequency of  digit in a number
 #include <iostream>
 using namespace std;
 
-void freq(int arr[8],int n)
+void freq(int arr[8], int n)
 {
-    int i,j;
-    
-    for(i=0;i<9;i++)
+    int i, j;
+
+    for (i = 0; i < 9; i++)
     {
-        int count=0;
-        for(j=0;j<n;j++)
+        int count = 0;
+        for (j = 0; j < n; j++)
         {
-            if(i==arr[j])
+            if (i == arr[j])
             {
-                count=count+1;
+                count = count + 1;
             }
-            
         }
-    if(count!=0)
-    {
-    cout<<i<<" : " <<count<<" ";
-    cout<<endl;
-    }
-
-
+        if (count != 0)
+        {
+            cout << i << " : " << count << " ";
+            cout << endl;
+        }
     }
 }
 
 int main()
 {
-    int n ;
-    cout<<"Enter any no. : ";
-    cin>>n;
+    int n;
+    cout << "Enter any no. : ";
+    cin >> n;
+
     int x = 0, i, j;
     int y = 0;
     int arr[8];
@@ -72,12 +72,12 @@ int main()
         n = n / 10;
         x++;
     }
-    int size=sizeof(arr)/sizeof(arr[0]);
-    for(i=0;i<size;i++)
+    int size = sizeof(arr) / sizeof(arr[0]);
+    for (i = 0; i < size; i++)
     {
-        cout<<arr[i]<<" ";
+        cout << arr[i] << " ";
     }
-    cout<<endl;
- 
-    freq(arr,size);
+    cout << endl;
+
+    freq(arr, size);
 }

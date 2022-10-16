@@ -164,93 +164,97 @@
 //     delete(curr);
 // }
 
-#include <iostream>
-using namespace std;
-class Node{
-	public:
-	int data;
-	Node* next;
-	Node(int d)
-	{
-		this->data=d;
-		this->next=NULL;
-	}
-};
-void append(Node* &head,Node* &tail,int d)
-{
-	Node* insert=new Node(d);
-	if(head==NULL)
-	{
-		head=insert;
-		tail=insert;
-		return;
-	}
-    else{
+// #include <iostream>
+// using namespace std;
+// class Node{
+// 	public:
+// 	int data;
+// 	Node* next;
+// 	Node(int d)
+// 	{
+// 		this->data=d;
+// 		this->next=NULL;
+// 	}
+// };
+// void append(Node* &head,Node* &tail,int d)
+// {
+// 	Node* insert=new Node(d);
+// 	if(head==NULL)
+// 	{
+// 		head=insert;
+// 		tail=insert;
+// 		return;
+// 	}
+//     else{
 
-		insert->next=tail->next;
-		tail->next=insert;
-        tail=insert;
-        return;
-    }
+// 		insert->next=tail->next;
+// 		tail->next=insert;
+//         tail=insert;
+//         return;
+//     }
 		
-}
-void reverse(Node* &head,Node* &tail)
-{
-	Node* curr=head;
-	Node* prev=NULL;
-	Node* next=NULL;
-	while(curr!=NULL)
-	{
-		next=curr->next;
-		curr->next=prev;
-		prev=curr;
-		curr=next;
-	}
-	 head=prev;
-}
- void print(Node* &head)
- {
-	 Node* temp=head;
-	 while(temp!=NULL)
-	 {
-		 cout<<temp->data<<" ";
-		 temp=temp->next;
-	 }
- }
- void del(Node* &head,Node* & tail,int d)
- {
+// }
+// void reverse(Node* &head,Node* &tail)
+// {
+// 	Node* curr=head;
+// 	Node* prev=NULL;
+// 	Node* next=NULL;
+// 	while(curr!=NULL)
+// 	{
+// 		next=curr->next;
+// 		curr->next=prev;
+// 		prev=curr;
+// 		curr=next;
+// 	}
+// 	 head=prev;
+// }
+//  void print(Node* &head)
+//  {
+// 	 Node* temp=head;
+// 	 while(temp!=NULL)
+// 	 {
+// 		 cout<<temp->data<<" ";
+// 		 temp=temp->next;
+// 	 }
+//  }
+//  void del(Node* &head,Node* & tail,int d)
+//  {
 	
-	if(head->data==d)
-	{
-		Node* temp=head;
-		head=head->next;
-		delete temp;
-	}
-	else{
-		Node* curr=head;
-		Node* prev=NULL;
-		while(curr->data!=d)
-		{
-			prev=curr;
-			curr=curr->next;
-		}
-		prev->next=curr->next;
-		delete curr;
-	}
- }
-int main() {
-	Node* head=NULL;
-	Node* tail=NULL;
-	int num;
-	cin >> num;   
-	int f,i;
-	for(i=0;i<num;i++)
-	{
-		cin>>f;
-		append(head,tail,f);
-	}
-	// reverse(head,tail);
-	del(head,tail,4);
-	print(head);
+// 	if(head->data==d)
+// 	{
+// 		Node* temp=head;
+// 		head=head->next;
+// 		delete temp;
+// 	}
+// 	else{
+// 		Node* curr=head;
+// 		Node* prev=NULL;
+// 		while(curr->data!=d)
+// 		{
+// 			prev=curr;
+// 			curr=curr->next;
+// 		}
+// 		prev->next=curr->next;
+// 		delete curr;
+// 	}
+//  }
+// int main() {
+// 	Node* head=NULL;
+// 	Node* tail=NULL;
+// 	int num;
+// 	cin >> num;   
+// 	int f,i;
+// 	for(i=0;i<num;i++)
+// 	{
+// 		cin>>f;
+// 		append(head,tail,f);
+// 	}
+// 	// reverse(head,tail);
+// 	del(head,tail,4);
+// 	print(head);
 
-}
+// }
+
+
+
+
