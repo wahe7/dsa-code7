@@ -68,3 +68,5 @@ int main()
     cout<<"index of 3 is "<<firstocc(arr,6,3)<<endl;
     cout<<"index of 3 is last "<<lastocc(arr,6,3);
 }
+
+

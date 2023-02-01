@@ -27,6 +27,8 @@ int main(void)
 
 }
 
+// n=sizeof(arr)/sizeof(int);
+
 // sort in descending order
 
 // #include<iostream>
