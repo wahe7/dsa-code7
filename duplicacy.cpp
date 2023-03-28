@@ -5,8 +5,8 @@ int main()
 
     int i,j=0,cnt=1;
 
-    int arr[3]={1,1,2};
-    for(i=1;i<3;i++)
+    int arr[4]={1,1,2,2};
+    for(i=1;i<4;i++)
     {
         if(arr[i]!=arr[j])
         {
